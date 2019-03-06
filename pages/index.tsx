@@ -1,7 +1,13 @@
+import * as React from 'react'
 import Layout from '../components/MyLayout'
 import Link from 'next/link'
 
-function getPosts() {
+interface Post {
+  id: string
+  title: string
+}
+
+function getPosts(): Post[] {
   return [
     { id: 'hello-nextjs', title: 'Hello, Next.js' },
     { id: 'learn-nextjs', title: 'Learn Next.js is awesome' },
@@ -9,7 +15,7 @@ function getPosts() {
   ]
 }
 
-const PostLink = ({ post }) => (
+const PostLink: React.FC<{ post: Post }> = ({ post }) => (
   <li>
     <Link as={`/p/${post.id}`} href={`/post?title=${post.title}`}>
       <a>{post.title}</a>
@@ -32,7 +38,7 @@ const PostLink = ({ post }) => (
   </li>
 )
 
-const Index = props => (
+const Index: React.FC = () => (
   <Layout>
     <h1>My Blog</h1>
     <ul>

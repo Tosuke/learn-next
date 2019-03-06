@@ -1,10 +1,11 @@
+import * as React from 'react'
 import Layout from '../components/MyLayout'
 import { withRouter } from 'next/router'
-import Markdown from 'react-markdown'
+const Markdown = require('react-markdown')
 
 export default withRouter(props => (
   <Layout>
-    <h1>{props.router.query.title}</h1>
+    <h1>{props.router!.query!.title}</h1>
     <div className="markdown">
       <Markdown source={`
 This is our blog post.
