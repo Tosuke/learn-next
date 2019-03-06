@@ -1,17 +1,20 @@
 import * as React from 'react'
+import { css } from '@emotion/core'
 import Link from 'next/link'
 
-const linkStyle = {
-  marginRight: 15
-}
+const HeaderStyle = css({
+  a: {
+    marginRight: 15
+  }
+})
 
 const Header: React.FC = () => (
-  <div>
+  <div css={HeaderStyle}>
     <Link href="/">
-      <a style={linkStyle}>Home</a>
+      <a>Home</a>
     </Link>
     <Link href="/about">
-      <a style={linkStyle}>About</a>
+      <a>About</a>
     </Link>
   </div>
 )
